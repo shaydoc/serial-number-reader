@@ -9,9 +9,10 @@ export declare class BarcodeDetector {
   detect(imageBitmapSource: ImageBitmapSource): Promise<Barcode[]>;
 }
 
-export async function readImageFile(event: Event): Promise<HTMLImageElement> {
-  const file = (<HTMLInputElement>event.target)?.files?.[0];
 
+
+
+export async function readImageFile(file: File): Promise<HTMLImageElement> {
   if (!file) {
     throw new Error('No file chosen');
   }

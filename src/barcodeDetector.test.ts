@@ -45,14 +45,8 @@ global.Image = vi.fn().mockImplementation(function() {
 });
 
 describe('Image File Reading and Barcode Detection', () => {
-  const event = {
-    target: {
-      files: [new Blob(['test'], {type: 'text/plain'})]
-    }
-  } as unknown as Event;
-
   test('readImageFile function', async () => {
-    const image = await readImageFile(event);
+    const image = await readImageFile(new Blob(['test'], {type: 'text/plain'}) as File);
     expect(image).toBeDefined();
     expect(image.src).toBeDefined();
   });

@@ -1,6 +1,8 @@
-# Barcode Detection Utility
+# Serial Number Reader Utility
 
 This TypeScript utility provides functionality for detecting barcodes from an image file. It works primarily with browser-based applications and leverages the experimental BarcodeDetector API. Please note that this API is not universally supported across all browsers.
+
+<image src="./barcode-scanner.png" />
 
 ## Features
 
@@ -21,11 +23,32 @@ This utility includes the following features:
 ## Usage
 
 ```typescript
-import { readImageFile, detectSerialNumber } from "barcode-detection-web-api";
+import { readImageFile, detectSerialNumber } from "serial-number-reader";
 
-// usage
-const image = await readImageFile(event);
-const serialNumbers = await detectSerialNumbers(image);
+// example usage with file input
+function getFileFromInputEvent(event: Event): File | null {
+  return (<HTMLInputElement>event.target)?.files?.[0] || null;
+}
+
+async function handleFileInputChange(event: Event): Promise<void> {
+  const file = getFileFromInputEvent(event);
+  if (!file) {
+    console.error("No file chosen");
+    return;
+  }
+
+  try {
+    const image = await readImageFile(file);
+    const serialNumbers = await detectSerialNumbers(image);
+
+    // do something with image
+  } catch (error) {
+    console.error("Error reading file", error);
+  }
+}
+
+const fileInputElement = document.querySelector('input[type="file"]');
+fileInputElement.addEventListener("change", handleFileInputChange);
 ```
 
 In the `detectBarcodes` function, the `barcodeTypes` parameter defaults to `['code_39', 'codabar', 'ean_13']`, but you can specify other types if needed. It uses a defined type `BarcodeType` which allows for these specific values only: 'aztec', 'code_128', 'code_39', 'code_93', 'codabar', 'data_matrix', 'ean_13', 'ean_8', 'itf', 'pdf417', 'qr_code', 'upc_a', 'upc_e'.
