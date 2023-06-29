@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,7 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-export function readImageFile(file) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.detectBarcodes = exports.readFileAsBlob = exports.detectSerialNumbers = exports.readImageFile = void 0;
+function readImageFile(file) {
     return __awaiter(this, void 0, void 0, function () {
         var imgBlob, blobUrl, image;
         return __generator(this, function (_a) {
@@ -57,7 +60,8 @@ export function readImageFile(file) {
         });
     });
 }
-export function detectSerialNumbers(image) {
+exports.readImageFile = readImageFile;
+function detectSerialNumbers(image) {
     return __awaiter(this, void 0, void 0, function () {
         var barcodes, serialNumbers;
         return __generator(this, function (_a) {
@@ -75,7 +79,8 @@ export function detectSerialNumbers(image) {
         });
     });
 }
-export function readFileAsBlob(file) {
+exports.detectSerialNumbers = detectSerialNumbers;
+function readFileAsBlob(file) {
     return new Promise(function (resolve, reject) {
         var reader = new FileReader();
         reader.onloadend = function () {
@@ -90,7 +95,8 @@ export function readFileAsBlob(file) {
         reader.readAsArrayBuffer(file);
     });
 }
-export function detectBarcodes(image, barcodeTypes) {
+exports.readFileAsBlob = readFileAsBlob;
+function detectBarcodes(image, barcodeTypes) {
     if (barcodeTypes === void 0) { barcodeTypes = ['code_39', 'codabar', 'ean_13']; }
     return new Promise(function (resolve, reject) {
         if (typeof BarcodeDetector === 'undefined') {
@@ -106,3 +112,4 @@ export function detectBarcodes(image, barcodeTypes) {
             .catch(reject);
     });
 }
+exports.detectBarcodes = detectBarcodes;
