@@ -1,0 +1,31 @@
+{
+  "name": "barcode-detection-web-api",
+  "version": "0.0.1",
+  "description": "A TypeScript utility for detecting barcodes using the Barcode Detection Web API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "barcode",
+    "detection",
+    "web api",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdom": "^22.1.0",
+    "typescript": "^5.1.5",
+    "vitest": "^0.32.2"
+  },
+  "peerDependencies": {
+    "typescript": ">=3.7"
+  }
+}

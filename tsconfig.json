@@ -1,0 +1,10 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    // END: ed8c6549bwf9
+    "types": ["vitest/globals"],
+    "outDir": "./dist",
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test.tsx", "src/**/*.test.ts"]
+}
