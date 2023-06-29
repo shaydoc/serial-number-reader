@@ -14,7 +14,7 @@ $ python3 -m http.server
 ## Usage TLDR
 
 ```typescript
-import { readImageFile, detectSerialNumber } from "serial-number-reader";
+import { readImageFile, detectSerialNumbers } from "serial-number-reader";
 
 // example usage with file input
 function getFileFromInputEvent(event: Event): File | null {
