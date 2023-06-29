@@ -2,25 +2,7 @@
 
 This TypeScript utility provides functionality for detecting barcodes from an image file. It works primarily with browser-based applications and leverages the experimental BarcodeDetector API. Please note that this API is not universally supported across all browsers.
 
-<image src="./barcode-scanner.png" />
-
-## Features
-
-This utility includes the following features:
-
-1. **Barcode Interface:** A TypeScript interface `Barcode` representing a barcode with a raw value.
-
-2. **BarcodeDetector Class:** A wrapper around the experimental `BarcodeDetector` API, providing a `detect` method that takes an `ImageBitmapSource` and returns a Promise of an array of `Barcode`.
-
-3. **Image File Reader:** An async function `readImageFile` that takes an event (usually from an input of type `file`), reads the file as a Blob, creates an Image object, and returns a Promise of `HTMLImageElement`.
-
-4. **Barcode Detection from Image:** An async function `detectSerialNumber` that takes an `ImageBitmapSource` and returns a Promise of an array of serial numbers extracted from the detected barcodes in the image.
-
-5. **File to Blob Converter:** A function `readFileAsBlob` that reads a `File` as an `ArrayBuffer`, then creates a `Blob` with the file type, and returns a Promise of the Blob.
-
-6. **Barcode Detection Wrapper:** A function `detectBarcodes` that creates a new `BarcodeDetector` for a specified set of barcode formats, detects barcodes in the provided `ImageBitmapSource`, and returns a Promise of an array of detected `Barcode` objects.
-
-## Usage
+## Usage TLDR
 
 ```typescript
 import { readImageFile, detectSerialNumber } from "serial-number-reader";
@@ -50,6 +32,24 @@ async function handleFileInputChange(event: Event): Promise<void> {
 const fileInputElement = document.querySelector('input[type="file"]');
 fileInputElement.addEventListener("change", handleFileInputChange);
 ```
+
+<image src="./barcode-scanner.png" />
+
+## Features
+
+This utility includes the following features:
+
+1. **Barcode Interface:** A TypeScript interface `Barcode` representing a barcode with a raw value.
+
+2. **BarcodeDetector Class:** A wrapper around the experimental `BarcodeDetector` API, providing a `detect` method that takes an `ImageBitmapSource` and returns a Promise of an array of `Barcode`.
+
+3. **Image File Reader:** An async function `readImageFile` that takes an event (usually from an input of type `file`), reads the file as a Blob, creates an Image object, and returns a Promise of `HTMLImageElement`.
+
+4. **Barcode Detection from Image:** An async function `detectSerialNumber` that takes an `ImageBitmapSource` and returns a Promise of an array of serial numbers extracted from the detected barcodes in the image.
+
+5. **File to Blob Converter:** A function `readFileAsBlob` that reads a `File` as an `ArrayBuffer`, then creates a `Blob` with the file type, and returns a Promise of the Blob.
+
+6. **Barcode Detection Wrapper:** A function `detectBarcodes` that creates a new `BarcodeDetector` for a specified set of barcode formats, detects barcodes in the provided `ImageBitmapSource`, and returns a Promise of an array of detected `Barcode` objects.
 
 In the `detectBarcodes` function, the `barcodeTypes` parameter defaults to `['code_39', 'codabar', 'ean_13']`, but you can specify other types if needed. It uses a defined type `BarcodeType` which allows for these specific values only: 'aztec', 'code_128', 'code_39', 'code_93', 'codabar', 'data_matrix', 'ean_13', 'ean_8', 'itf', 'pdf417', 'qr_code', 'upc_a', 'upc_e'.
 
