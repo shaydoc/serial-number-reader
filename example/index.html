@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>File Input Demo</title>
+  <script type="module">
+    import { readImageFile, detectSerialNumbers } from "/dist/barcodeDetector.js";
+
+          // example usage with file input
+          function getFileFromInputEvent(event)  {
+            return (event.target)?.files?.[0] || null;
+          }
+
+          async function handleFileInputChange(event) {
+             const file = getFileFromInputEvent(event);
+            if (!file) {
+              console.error("No file chosen");
+            return;
+           }
+
+            try {
+            const image = await readImageFile(file);
+            const serialNumbers = await detectSerialNumbers(image);
+            document.querySelector('#serialNumbers').innerHTML = serialNumbers;
+            console.log(serialNumbers);
+            return image;
+
+            // do something with image
+            } catch (error) {
+                console.error("Error reading file", error);
+            }
+          }
+
+          const fileInputElement = document.querySelector('input[type="file"]');
+          fileInputElement.addEventListener("change", handleFileInputChange);
+
+           // Assuming that the function is exposed globally or you can import it in your actual project setup
+            document.querySelector('#imageInput').addEventListener('change', async function (event) {
+              try {
+                const imageElement = await handleFileInputChange(event);  // This function is defined in your_script_file.js
+                document.querySelector('#uploadedImage').src = imageElement.src; // Add the uploaded image to the img tag
+              } catch (error) {
+                console.error('Error handling file input change:', error);
+              }
+            });
+  </script>
+</head>
+
+<body>
+  <h1>Upload an Image</h1>
+  <input type="file" id="imageInput" accept="image/*">
+  
+  <div id="serialNumbers"></div>
+  <img id="uploadedImage" alt="Uploaded image will appear here" style="max-width:500px; max-height:500px;">
+
+</body>
+
+</html>

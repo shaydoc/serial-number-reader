@@ -3,7 +3,9 @@
   "compilerOptions": {
     // END: ed8c6549bwf9
     "types": ["vitest/globals"],
-    "outDir": "./dist",
+    "outDir": "dist",
+    "module": "esnext",
+     "lib": ["es2015"],// ✅
   },
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test.tsx", "src/**/*.test.ts"]
