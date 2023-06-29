@@ -2,6 +2,15 @@
 
 This TypeScript utility provides functionality for detecting barcodes from an image file. It works primarily with browser-based applications and leverages the experimental BarcodeDetector API. Please note that this API is not universally supported across all browsers.
 
+## Demo
+
+```bash
+$ cd example
+$ python3 -m http.server
+
+# navigation to http://localhost:8000
+```
+
 ## Usage TLDR
 
 ```typescript
