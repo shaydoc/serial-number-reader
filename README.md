@@ -22,6 +22,7 @@ async function handleFileInputChange(event: Event): Promise<void> {
   try {
     const image = await readImageFile(file);
     const serialNumbers = await detectSerialNumbers(image);
+    console.log(serialNumbers);
 
     // do something with image
   } catch (error) {
