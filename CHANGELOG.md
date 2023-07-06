@@ -1,5 +1,11 @@
 # serial-number-reader
 
+## 0.1.2
+
+### Patch Changes
+
+- da995eb: adds auto release to npm step for changeset workflow
+
 ## 0.1.1
 
 ### Patch Changes
