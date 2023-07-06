@@ -10,7 +10,7 @@ $: npm i serial-number-reader
 
 ## Demo
 
-See: [https://jsfiddle.net/shaydoc/za36ydg9/1/](https://jsfiddle.net/shaydoc/za36ydg9/1/)
+See: [https://jsfiddle.net/shaydoc/q1kjnyx9/](https://jsfiddle.net/shaydoc/q1kjnyx9/)
 
 ```bash
 $ cd example
