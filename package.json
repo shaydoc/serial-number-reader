@@ -1,6 +1,6 @@
 {
   "name": "serial-number-reader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A TypeScript utility for detecting serial numbers from barcodes using the Barcode Detection Web API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
