@@ -2,6 +2,12 @@
 
 This TypeScript utility provides functionality for detecting barcodes from an image file. It works primarily with browser-based applications and leverages the experimental BarcodeDetector API. Please note that this API is not universally supported across all browsers.
 
+# Install
+
+```
+$: npm i serial-number-reader
+```
+
 ## Demo
 
 ```bash
