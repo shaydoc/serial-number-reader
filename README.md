@@ -10,6 +10,8 @@ $: npm i serial-number-reader
 
 ## Demo
 
+See: [https://jsfiddle.net/shaydoc/za36ydg9/1/](https://jsfiddle.net/shaydoc/za36ydg9/1/)
+
 ```bash
 $ cd example
 $ python3 -m http.server
