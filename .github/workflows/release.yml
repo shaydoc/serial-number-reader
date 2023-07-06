@@ -32,15 +32,15 @@ jobs:
         uses: changesets/action@v1
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: echo "No publish script found"
+          publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }} - disabled because we are using a manual publish script
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish
-        if: steps.changesets.outputs.hasChangesets == 'false'
-        # You can do something when a publish should happen.
-        run: echo "No changesets so must publish manually to npm"
+      # - name: Publish
+      #   if: steps.changesets.outputs.hasChangesets == 'false'
+      #   # You can do something when a publish should happen.
+      #   run: echo "No changesets so must publish manually to npm"
 
       - name: Send a notification if a publish happens
         if: steps.changesets.outputs.published == 'true'
