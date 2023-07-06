@@ -18,7 +18,8 @@
     "test": "vitest",
     "build": "tsc && vite build",
     "changeset": "changeset",
-    "prepare": "tsc && vite build"
+    "prepare": "tsc && vite build",
+    "release": "pnpm prepare && changeset publish"
   },
   "keywords": [
     "barcode",
