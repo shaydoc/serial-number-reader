@@ -1,16 +1,23 @@
 {
   "name": "serial-number-reader",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A TypeScript utility for detecting serial numbers from barcodes using the Barcode Detection Web API",
-  "main": "dist/index.js",
+  "main": "dist/serial-number-reader.js",
+  "type": "module",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/serial-number-reader.js",
+      "require": "./dist/serial-number-reader.umd.cjs"
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
     "test": "vitest",
-    "build": "tsc",
-    "prepare": "tsc"
+    "build": "tsc && vite build",
+    "prepare": "tsc && vite build"
   },
   "keywords": [
     "barcode",
@@ -25,8 +32,11 @@
     "url": "https://github.com/shaydoc/serial-number-reader"
   },
   "devDependencies": {
+    "@types/node": "^20.4.0",
     "jsdom": "^22.1.0",
     "typescript": "^5.1.6",
+    "vite": "^4.4.0",
+    "vite-plugin-dts": "^3.1.0",
     "vitest": "^0.32.4"
   },
   "peerDependencies": {
