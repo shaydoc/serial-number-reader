@@ -17,6 +17,7 @@
   "scripts": {
     "test": "vitest",
     "build": "tsc && vite build",
+    "changeset": "changeset",
     "prepare": "tsc && vite build"
   },
   "keywords": [
@@ -32,6 +33,7 @@
     "url": "https://github.com/shaydoc/serial-number-reader"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@types/node": "^20.4.0",
     "jsdom": "^22.1.0",
     "typescript": "^5.1.6",
