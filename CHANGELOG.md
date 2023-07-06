@@ -1,5 +1,11 @@
 # serial-number-reader
 
+## 0.1.3
+
+### Patch Changes
+
+- 221b0e5: configure changeset access to public
+
 ## 0.1.2
 
 ### Patch Changes
