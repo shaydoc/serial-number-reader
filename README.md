@@ -83,9 +83,17 @@ No external dependencies are required. This utility uses native browser APIs and
 
 Please refer to the [official documentation](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detector_API) for the most current browser compatibility information. As of the last update, the API is supported on Chrome and Edge (desktop) only.
 
+## CI/CD - Changesets
+
+There is a [changelog](https://www.npmjs.com/package/@changesets/cli) release process implemented with [changesets/cli](https://www.npmjs.com/package/@changesets/cli) see [release.yml](.github/workflows/release.yml)
+The workflow template is based off of [changesets/action](https://github.com/changesets/action)
+
+<img src="changeset-release-flow.png" />
+
 ## Contributions
 
 If you encounter any issues or want to contribute, feel free to open an issue or a pull request.
+Be sure to make a PR, and add a changeset using `pnpm changeset`
 
 ## License
 
